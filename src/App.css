@@ -1,0 +1,618 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap");
+
+
+/*Home Background */
+
+#home {
+  background-image: url('./assets/heroBg.png');
+  background-size: cover;
+}
+
+/* Navbar */
+
+.nav {
+  font-family: "Sofadi One", system-ui;
+}
+
+.nav {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav.initial {
+  background-color: transparent;
+}
+
+.nav.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  color: #2c3e50; 
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background-color: #F5A93F;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.nav.initial .menu-item.active::after {
+  width: 30%;
+  opacity: 1;
+}
+
+.nav.initial .menu-item:hover::after {
+  width: 30%;
+  opacity: 1;
+}
+
+.nav.initial .menu-item:not(.active):hover::after {
+  width: 30%;
+  opacity: 1;
+}
+
+.nav.scrolled .menu-item::after {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav.scrolled .menu-item.active {
+  background-color: #f5a93f;
+  padding: 30px 30px;
+  color: #fff;
+}
+
+.nav.scrolled .menu-item:hover {
+  background-color: #f5a93f;
+  padding: 30px 30px;
+  color: #fff;
+}
+
+.nav.scrolled .menu-item:not(.active) {
+  background-color: transparent;
+}
+
+.nav.scrolled .menu-item:not(.active):hover {
+  background-color: #f5a93f;
+  
+}
+
+.nav.scrolled .group:hover .menu-item:not(.active) {
+  background-color: #f5a93f;
+  padding: 30px 30px;
+  color: white;
+}
+
+.nav.initial .group:hover .menu-item:not(.active)::after {
+  width: 30%;
+  opacity: 1;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #2c3e50;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5a93f;
+  color: white;
+}
+
+
+
+/*Styling for number available on Navbar*/
+
+.navNumber {
+  font-family: "SUSE", sans-serif;
+}
+
+/*Hero Section Heading*/
+
+.heading {
+  font-family: "Playfair Display", serif;
+}
+
+
+.qualityBg{
+  background-image: url('./assets/qualityBg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/*Styling for Products Card Icon's Rotation and Div*/
+
+.productCard {
+  background-color: white;
+  text-align: center;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  cursor: pointer;
+  border: 2px solid #999;
+  border-radius: 7px;
+  transition: box-shadow 0.7s ease-in-out;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.productCard:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.productCard:hover .icon {
+  transform: rotateY(180deg);
+  color: #52677f;
+}
+
+.icon {
+  color: #246396;
+  cursor: pointer;
+  transition: transform 1s ease-in-out, color 0.5s ease-in-out; /* Smooth transition for flip */
+}
+
+/* Border Animation */
+.productCard::before, .productCard::after {
+  content: "";
+  position: absolute;
+  transition: width 0.9s ease-in-out, height 0.9s ease-in-out;
+  opacity: 0;
+}
+
+.productCard::before {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 3px solid #03A9F3;
+  border-left: 3px solid #03A9F3;
+}
+
+.productCard::after {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 3px solid #03A9F3;
+  border-right: 3px solid #03A9F3;
+}
+
+.productCard:hover::before, .productCard:hover::after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+/* Button Hover */
+.productCard button {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.productCard button:hover {
+  background-color: #f5a934;
+  color: white;
+  border-color: #f5a934;
+}
+
+
+
+.productBg{
+  background: url('');
+  background-size: cover;
+}
+
+
+/*Video Play Button with Ripple  Effect*/
+.vidBtn {
+  height: 130px;
+  width: 130px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 100%;
+  text-transform: uppercase;
+  font-family: "Muli-LightItalic", Helvetica;
+  font-size: 20px;
+  line-height: 30px;
+  animation: ripple 1.5s linear infinite;
+  transition: all 0.7s ease;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.3), 0 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.3), 0 0 0 20px rgba(255, 255, 255, 0), 0 0 0 30px rgba(255, 255, 255, 0);
+  }
+}
+
+
+/*3-Image Hover Styling for Images in Video.jsx*/
+.hover-img-container {
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+.hoverImg {
+  transition: transform 0.3s ease;
+}
+
+.hover-img-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 219, 253, 0.4);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 10;
+}
+
+.hover-img-container:hover::after {
+  opacity: 1;
+}
+
+.hover-img-container:hover .hoverImg {
+  transform: scale(1.1);
+}
+
+
+/*Chemical Formula Styling*/
+.chem {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/*Glass Ripple Effect*/
+.glassRipple {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 50px auto;
+  animation: glassRipple 0.6s linear infinite;
+  border-radius: 150px;
+}
+
+@keyframes glassRipple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 172, 210, 0.1), 0 0 0 20px rgba(76, 172, 210, 0.1), 0 0 0 40px rgba(76, 172, 210, 0.1), 0 0 0 60px rgba(76, 172, 210, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(76, 172, 210, 0.1), 0 0 0 40px rgba(76, 172, 210, 0.1), 0 0 0 60px rgba(76, 172, 210, 0.1), 0 0 0 80px rgba(76, 172, 210, 0);
+  }
+
+}
+
+
+/*Service Background Effect*/
+.services {
+  background-image: url('./assets/servicesbg.png');
+  background-size: cover;
+  background-position: calc(50% + 100px);
+}
+
+.footerFont {
+  font-family: "PT Sans", sans-serif;
+}
+
+
+/*Product Categories*/
+.categoriesList {
+  font-family: "Roboto", sans-serif;
+}
+
+#range-slider-blue {
+  height: 6px;
+}
+
+#range-slider-blue .range-slider__range {
+  background: #346BAE;
+  transition: height 0.3s;
+}
+
+#range-slider-blue .range-slider__thumb {
+  width: 20px;
+  height: 20px;
+  background: #346BAE;
+  transition: transform 0.3s;
+}
+
+#range-slider-blue .range-slider__thumb[data-active] {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+#range-slider-blue .range-slider__range[data-active] {
+  height: 10px;
+}
+
+
+/*Styling For the Dots of Shop Page Carousel*/
+
+.pagination {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+
+
+
+.custom-select {
+  appearance: none; /* Remove default styling */
+  background-color: #f5f5f5; /* Match background */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 50px; /* Rounded corners */
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem; /* Adjust padding */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 1rem; /* Font size */
+  color: #333; /* Text color */
+  text-align: left; /* Align selected item to the left */
+}
+
+.custom-select option {
+  text-align: center; /* Center align dropdown options */
+}
+
+/* Add a wrapper class for better styling control */
+.select-wrapper {
+  position: relative; /* Position relative for the icon */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+}
+
+/* Style for the dropdown arrow */
+.select-arrow {
+  position: absolute;
+  right: 1rem; /* Position the arrow */
+  pointer-events: none; /* Prevent interaction */
+}
+
+.pageBg{
+  height: 700px;
+  background-image: url('./assets/pagebg.jpg');
+  background-size: cover;
+}
+
+.filterBg{
+  background-image: url('./assets/filterationBg.jpg');
+}
+
+
+.flip {
+  cursor: pointer;
+  transition: transform 1s ease-in-out, color 0.5s ease-in-out; /* Smooth transition for flip */
+}
+
+.flip:hover{
+  transform: rotateY(180deg);
+}
+
+
+
+
+
+
+/*Our Team Section Start*/
+
+
+.team a {
+  text-decoration: none;
+}
+
+.team img {
+  max-width: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+}
+
+.team section {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  padding-block: min(20vh, 5rem);
+  text-align: center;
+  width: calc(min(90rem, 90%));
+  margin-inline: auto;
+}
+
+.team section p,
+.team section h2,
+.team section h3 {
+  letter-spacing: 0.035rem;
+}
+
+.team section p {
+  line-height: 1.7;
+  color: #454545;
+  max-width: 70rem;
+  margin: 0 auto;
+  font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+}
+
+.team section h2 {
+  font-size: clamp(3rem, 2.4286rem + 2.2857vw, 5rem);
+  color: #111;
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.team .cards {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+@media screen and (min-width: 51rem) {
+  .team .cards {
+    gap: 3.5rem;
+  }
+}
+
+.team .card {
+  position: relative;
+  text-align: left;
+}
+
+.team .social-icon {
+  background: #111;
+  padding: 1rem 1.75rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.social-icon{
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.social-icon:hover{
+  color: #003ef5;
+}
+
+.team .card img {
+  filter: grayscale(100%);
+  transition: 0.5s ease;
+}
+
+.team .card img:hover {
+  filter: grayscale(0%);
+}
+
+.team .card .card-content-wrapper {
+  margin-left: auto;
+  max-width: 90%;
+}
+
+.team .card .card-content {
+  display: block;
+  background: white;
+  transition: 0.5s ease;
+  padding: 4.5rem 2rem 0 3.2rem;
+}
+
+.team .card .card-content > div {
+  text-align: right;
+}
+
+.card h3,
+.card p {
+  text-transform: capitalize;
+}
+
+.card h3 {
+  font-size: clamp(1.15rem, 1.1071rem + 0.1714vw, 1.3rem);
+  font-weight: 800;
+  color: #111;
+}
+
+.card p {
+  color: #454545;
+  font-size: 0.9rem;
+}
+
+.card svg {
+  display: inline-block;
+  text-align: right;
+  width: 60px;
+}
+
+/* hover states */
+.card-img-wrapper:hover ~ .card-content-wrapper .card-content,
+.card-content-wrapper:hover .card-content {
+  background: #003ef5;
+}
+
+.card-img-wrapper:hover ~ .card-content-wrapper .card-content h3,
+.card-img-wrapper:hover ~ .card-content-wrapper .card-content p,
+.card-img-wrapper:hover ~ .card-content-wrapper .card-content svg,
+.card-content-wrapper:hover .card-content h3,
+.card-content-wrapper:hover .card-content p,
+.card-content-wrapper:hover .card-content svg {
+  color: #fff;
+}
+
+/*Our Team Section End*/
+
+
+/*What We Do Section Start*/
+
+
+.workCard {
+  position: relative;
+  display: inline-block;
+}
+
+
+.workCard .imgEffect {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.workCard .imgEffect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #16bcea;
+  opacity: 0.8;
+  z-index: 2; /* Ensure it sits above the image */
+  transition: height 0.3s ease; /* Smooth transition */
+}
+
+.workCard:hover .imgEffect::after {
+  height: 103%; /* Fill the entire image on hover */
+}
+
+
+
+
+.workCard:hover img
+{
+  transform: scale(1.05);
+  transition: transform .5s ease-in-out;
+}
